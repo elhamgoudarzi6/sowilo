@@ -1,0 +1,643 @@
+
+@import "tailwindcss";
+
+/* =========================
+   FONTS
+========================= */
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   SOWILO BRAND COLORS
+   DEFAULT: DARK
+========================= */
+
+:root {
+
+  /* Fonts */
+  --font-primary: "Roboto";
+
+  /* Brand */
+  --color-primary: #8E2638;
+  --color-primary-hover: #A33549;
+  --color-accent: #F3EBDD;
+
+  /* Background & Surface */
+  --color-background: #0B0A0B;
+  --color-surface: #171516;
+  --color-surface-hover: #211D1E;
+
+  /* Text */
+  --color-text: #F3EBDD;
+  --color-text-secondary: #A7A09A;
+  --color-text-inverse: #0B0A0B;
+
+  /* Neutral */
+  --color-gray: #8A8582;
+  --color-gray-light: #B7B0A8;
+  --color-gray-dark: #393536;
+
+  /* Border & Overlay */
+  --color-border: #302B2D;
+  --color-overlay: #0B0A0B;
+  --color-border-light: #E0D6C9;
+
+  /* Status */
+  --color-success: #7C9A83;
+  --color-danger: #C65A6D;
+  --color-warning: #C6A36A;
+}
+
+/* =========================
+   ADMIN THEME
+   FIXED: LIGHT
+========================= */
+
+.admin-theme {
+  color-scheme: light;
+
+  /* Brand */
+  --color-primary: #8E2638;
+  --color-primary-hover: #761D2D;
+  --color-accent: #E8C9CB;
+
+  /* Background & Surface */
+  --color-background: #F3EBDD;
+  --color-surface: #FFFCF6;
+  --color-surface-hover: #EAE1D5;
+
+  /* Text */
+  --color-text: #302B2D;
+  --color-text-secondary: #756B6D;
+  --color-text-inverse: #F3EBDD;
+
+  /* Neutral */
+  --color-gray: #8A8582;
+  --color-gray-light: #B7B0A8;
+  --color-gray-dark: #393536;
+
+  /* Border & Overlay */
+  --color-border: #E0D6C9;
+  --color-overlay: #302124;
+
+  /* Status */
+  --color-success: #54785C;
+  --color-danger: #A72F43;
+  --color-warning: #A77D3F;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-background);
+  font-family: var(--font-primary), sans-serif !important;
+  color: var(--color-text);
+  min-height: 100vh;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* =========================
+   WAVE ANIMATION
+========================= */
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(-120px);
+  }
+
+  50% {
+    transform: translateX(80px);
+  }
+
+  100% {
+    transform: translateX(-120px);
+  }
+}
+
+/* =========================
+   SEARCH MICROPHONE
+========================= */
+
+@keyframes search-mic-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.45;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.search-mic-active {
+  animation: search-mic-pulse 0.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-mic-active {
+    animation: none;
+  }
+}
+
+/* =========================
+   MUI GLOBAL FONT
+========================= */
+
+.MuiAutocomplete-root,
+.MuiAutocomplete-root *,
+.MuiAutocomplete-popper,
+.MuiAutocomplete-popper *,
+.MuiTextField-root,
+.MuiTextField-root *,
+.MuiMenuItem-root,
+.MuiTypography-root {
+  font-family: var(--font-primary) !important;
+}
+
+.MuiInputBase-root,
+.MuiInputBase-input,
+.MuiFormLabel-root,
+.MuiFormHelperText-root,
+.MuiButtonBase-root {
+  font-family: var(--font-primary) !important;
+}
+
+/* =========================
+   EDITOR CONTENT
+========================= */
+
+.bn-root[data-editor] .bn-container,
+.bn-root[data-editor] .bn-editor {
+  background: transparent !important;
+}
+
+.bn-root[data-editor] .bn-editor * {
+  font-family: var(--font-primary) !important;
+  text-align: justify;
+}
+
+/* =========================
+   DATE PICKER
+========================= */
+
+.custom-date-picker.rmdp-wrapper {
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--primary-color) 15%,
+      white
+    ) !important;
+
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+/* Selected Day */
+
+.custom-date-picker.rmdp-wrapper .rmdp-day.rmdp-selected span {
+  background-color: var(--primary-color) !important;
+  color: #ffffff !important;
+}
+
+/* Today */
+
+.custom-date-picker.rmdp-wrapper .rmdp-day.rmdp-today span {
+  background-color: color-mix(
+    in srgb,
+    var(--primary-color) 12%,
+    white
+  ) !important;
+
+  color: var(--primary-color) !important;
+}
+
+/* Today + Selected */
+
+.custom-date-picker.rmdp-wrapper
+  .rmdp-day.rmdp-today.rmdp-selected span {
+  background-color: var(--primary-color) !important;
+  color: #ffffff !important;
+}
+
+/* Hover */
+
+.custom-date-picker.rmdp-wrapper
+  .rmdp-day:not(.rmdp-disabled) span:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--primary-color) 10%,
+    white
+  ) !important;
+
+  color: var(--primary-color) !important;
+}
+
+/* Week Days */
+
+.custom-date-picker.rmdp-wrapper .rmdp-week-day {
+  color: var(--primary-color) !important;
+}
+
+/* Month / Year Header */
+
+.custom-date-picker.rmdp-wrapper .rmdp-header-values {
+  color: var(--primary-color) !important;
+}
+
+/* Previous / Next Arrows */
+
+.custom-date-picker.rmdp-wrapper .rmdp-arrow {
+  border-color: var(--primary-color) !important;
+}
+
+/* Arrow Hover */
+
+.custom-date-picker.rmdp-wrapper
+  .rmdp-arrow-container:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--primary-color) 10%,
+    white
+  ) !important;
+}
+
+/* Other Month Days */
+
+.custom-date-picker.rmdp-wrapper
+  .rmdp-day.rmdp-deactive span {
+  color: #c9c9c9 !important;
+}
+
+/* =========================
+   SHAPES & CLIP PATHS
+========================= */
+
+.hexagon {
+  clip-path: polygon(
+    25% 6.7%,
+    75% 6.7%,
+    100% 50%,
+    75% 93.3%,
+    25% 93.3%,
+    0% 50%
+  );
+}
+
+.hexagon-bar {
+  clip-path: polygon(
+    7% 0%,
+    95% 0%,
+    100% 50%,
+    95% 100%,
+    7% 100%,
+    0% 50%
+  );
+}
+
+.hexagon-img {
+  clip-path: polygon(
+    10% 0%,
+    90% 0%,
+    100% 50%,
+    90% 100%,
+    10% 100%,
+    0% 50%
+  );
+}
+
+.arrow-card {
+  position: relative;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 25px) 0,
+    100% 50%,
+    calc(100% - 25px) 100%,
+    0 100%
+  );
+}
+
+.clip-arrow {
+  clip-path: polygon(
+    0 0,
+    100% 50%,
+    0 100%,
+    20% 85%,
+    70% 50%,
+    20% 15%
+  );
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@layer base {
+
+  /* Fade In Down */
+
+  @keyframes fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-down {
+    animation: fade-in-down 0.7s ease-out both;
+  }
+
+  /* Slide In Up */
+
+  @keyframes slide-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in-up {
+    animation: slide-in-up 0.7s ease-out both;
+  }
+
+  /* Slide In Down */
+
+  @keyframes slide-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in-down {
+    animation: slide-in-down 0.7s ease-out both;
+  }
+
+  /* Fade Show */
+
+  @keyframes fade-show {
+    0% {
+      opacity: 0.4;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-show {
+    animation: fade-show 1s ease-in-out;
+  }
+
+  /* Spin 3D */
+
+  @keyframes spin3D {
+    0% {
+      transform: perspective(1000px) rotateY(0deg);
+    }
+
+    100% {
+      transform: perspective(1000px) rotateY(360deg);
+    }
+  }
+
+  .animate-spin3D {
+    animation: spin3D 20s linear infinite;
+  }
+
+  /* Spin */
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+
+  /* Ping */
+
+  @keyframes ping {
+    75%,
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+
+  .animate-ping {
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  /* Pulse */
+
+  @keyframes pulse {
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Bounce */
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+
+  .animate-bounce {
+    animation: bounce 1s infinite;
+  }
+
+  /* Custom Ping */
+
+  @keyframes custom-ping {
+    75%,
+    100% {
+      transform: scale(1.1);
+      opacity: 0;
+    }
+  }
+
+  .animate-custom-ping {
+    animation: custom-ping 1.5s cubic-bezier(0, 0, 0.7, 1) infinite;
+  }
+
+  /* Typing */
+
+  @keyframes typing {
+    0% {
+      width: 0ch;
+    }
+
+    50% {
+      width: 30ch;
+    }
+
+    100% {
+      width: 0ch;
+    }
+  }
+
+  @keyframes blink-caret {
+    0%,
+    100% {
+      border-color: transparent;
+    }
+
+    50% {
+      border-color: black;
+    }
+  }
+
+  .animate-typing {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+
+    animation:
+      typing 4s steps(10) infinite,
+      blink-caret 0.75s step-end infinite;
+  }
+
+  /* Wave Move */
+
+  @keyframes waveMove {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(40px);
+    }
+  }
+
+  .animate-waveMove {
+    animation: waveMove 2s linear infinite;
+  }
+
+  /* Marquee */
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(-100%);
+    }
+
+    50% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+  /* Scroll Down */
+
+  @keyframes scroll-down {
+    0% {
+      transform: translateY(-50%);
+    }
+
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  .scroll-down {
+    animation: scroll-down 150s linear infinite;
+  }
+
+  /* Scroll Up */
+
+  @keyframes scroll-up {
+    0% {
+      transform: translateY(0%);
+    }
+
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  .scroll-up {
+    animation: scroll-up 150s linear infinite;
+  }
+}
